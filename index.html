@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="main.js"></script> 
+    <script src="orgfunc.js"></script>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.3.1/firebase-app-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  </head>
+  <header>
+    <div class="navbar">
+    <div id="listdiv">
+      <ul id="pagEs">
+        <li class="navit">Lugares </li>
+        <li class="navit">Buscador </li>
+      </ul>
+    </div>  
+    <div class="header-container" id=container>
+        <div id="clickable" onclick=menudiv(this)>
+          <div class="menu_div1"></div>
+          <div class="menu_div2"></div>
+          <div class="menu_div3"></div>
+        </div>
+        <div class="menu_div1"></div>
+        <div class="menu_div2"></div>
+        <div class="menu_div3"></div>
+      <ul id="dropdown" >
+        <li><p class="droplist" id ="loginSel"onclick=console.log("some")>Login</p></li>
+        <li><p class="droplist" id ="regisSel"onclick=console.log("some")>Register</p></li>
+        <li><p class="droplist" id ="optionSel"onclick=console.log("some")>Options</p></li>
+      </ul>
+    </div>
+    </div>
+  </header>
+  <body>
+    <div id="tree-container">
+          <div class="raiz" id=raiz>
+            Lugares turisticos
+            <select class="seleCtor" id="type-Selector" onchange=treeProg(this)>
+                <option onClick=treeProg(this.parentElement) value="Naturales">Naturales</option>
+                <option value="Historicos">Historicos</option>
+                <option value="Gastronomicos">Gastronomicos</option>
+                <option value="Artisticos">Artisticos</option>
+                <option value="Entretenimiento">Entretenimiento</option>
+                <option value="Utilidad">Utilidad</option>
+            </select>
+          </div>
+
+          <div class="inner" id="node1">
+            <p>Estado</p>
+            <select class="seleCtor" id="state-Selector" onchange=treeProg(this)>
+                <option onClick=treeProg(this.parentElement) value="tamaulipas">Tamaulipas</option>
+                <option value="Monterrey">Monterrey</option>
+                <option value="Ciudad de Mexico">Ciudad de Mexico</option>s
+            </select>
+            <!-- needs a diferent script to deploy options -->
+            <!-- how to easy solve it -->
+            <p>Municipio</p> 
+            <select class="seleCtor" id="county-Selector" onchange=treeProg(this)>
+                <option onClick=treeProg(this.parentElement) value="Opciones">Opciones</option>
+                <option value="Opcion 1">Opcion 1</option>
+                <option value="Opcion 2">Opcion 2</option>
+                <option value="Opcion 3">Opcion 3</option>
+                <option value="Opcion 4">Opcion 4</option>
+                <option value="Opcion 5">Opcion 5</option>
+                <option value="Opcion 6">Opcion 6</option>
+            </select>
+            
+          </div>
+          <div class="inner" id="node2">
+            <p>Horario</p>
+            <select class="seleCtor" id="hour-Selector" onchange=treeProg(this)>
+                <option onClick=treeProg(this.parentElement) value="Matutino">Matutino</option>
+                <option value="Vespertino">Vespertino</option>
+                <option value="Nocturno">Nocturno</option>
+                <option value="24hrs">24hrs</option>
+                
+            </select>
+            <p>Precios</p>
+            <select class="seleCtor" id="price-Selector" onchange=treeProg(this)>
+                <option value="Actual"> $100 - $350</option>
+                <option value="Naturales">$350 - $750</option>
+                <option value="Historicos">$750 - $1000</option>
+                <option value="Gastronomicos">$1000 - $1500</option>
+                <option value="Artisticos">$2000 - $2500</option>
+                <option value="Entretenimiento">$2500 - $3000</option>
+            </select>
+          </div>
+
+          <div class="inner" id="node3">
+            <p>Tipo de ambiente</p>
+            <select class="seleCtor" id="ambient-Selector" onchange=treeProg(this)>
+                <option onClick=treeProg(this.parentElement) value="Matutino">Familiar</option>
+                <option value="Vespertino">Nocturno</option>
+                <option value="Vespertino">Infantil</option>
+                <option value="Vespertino">Cualquiera</option>
+            </select>
+            <p>Valoracion del lugar</p>
+            <select class="seleCtor" id="value-Selector" onchange=treeProg(this)>
+                <option value="Actual">Excelente</option>
+                <option value="Actual">Buena</option>
+                <option value="Actual">Descente</option>
+                <option value="Actual">Normal</option>
+            </select>
+            <p>Nivel de Popularidad</p>
+            <select class="seleCtor" id="pop-Selector" onchange=treeProg(this)>
+                <option value="Actual">Alto</option>
+                <option value="Actual">Moderado</option>
+                <option value="Actual">Bajo</option>
+            </select>
+          </div>
+    </div>
+    <!-- This mtf gathers the data and creates the command to pass on to open Ai-->
+    <div id="text-cont">
+    <input type="text" id="fname" name="fname" readonly>
+     <button id="Qbutton" type="button" onclick=stringQuerie()>Buscar</button> 
+    </div>
+    <div id="text-out" > 
+      <textarea id="freeform" name="freeform" rows="4" cols="50" readonly>
+</textarea>
+    </div>
+  </body>
+</html>

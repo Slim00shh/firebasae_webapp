@@ -1,0 +1,151 @@
+*{
+	margin: 0;
+}
+
+body{
+	background: #222;
+}
+
+header{
+	background: #5072A7;
+	padding: 6px;
+}
+p{
+	background-color: violet;
+}
+/* navbar styles */
+.header-container{
+	width: 47px;
+	display: block;
+	padding: 6px;
+}
+
+#listdiv{
+	width: 100%;
+}
+
+.navbar{
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+}
+
+.navbar ul li{
+	display: inline;
+	list-style: none;
+	padding: 1.7%;
+}
+
+#pagEs{
+	text-align: center;
+}
+
+.navit{
+	cursor: pointer;
+}
+
+.navit:hover{
+	background-color: violet;
+}
+
+#clickable{
+	background: blue;
+	position: absolute;
+	height: 36px;
+	display: block;
+	background: darkred;
+	margin: 0 auto;
+	padding: 6px;
+	float: right;
+	align-content: center;
+	cursor: pointer;
+}
+
+.menu_div1, .menu_div2, .menu_div3{
+	width: 45px;
+  	height: 5px;
+  	background-color: black;
+  	margin: 6px 0;
+  	transition: 0.4s;
+}
+
+.change .menu_div1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .menu_div2 {opacity: 0;}
+
+.change .menu_div3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+#dropdown{
+	font-size: 20px;
+	position: absolute;
+	background: white;
+	display: none;
+	float: right;
+	padding: 10px;
+	cursor: pointer;
+	transform: translate(-27px, 7px);
+}
+
+.droplist{
+	background-color:white ;
+}
+
+.droplist:hover{
+	background-color: grey;
+}
+
+/* arbol de desiciones*/
+
+#tree-container{
+	display: block;
+	margin-top: 5px;
+	padding: 3px; 
+}
+
+#raiz{
+	background-color: violet;
+	display: inline-block;
+	border-radius: 10px;
+}
+
+.inner{
+	display:none;
+}
+
+.seleCtor{
+	margin: 6px;
+	padding: 3px;
+}
+
+/*texto de salida*/
+
+ #text-cont{
+ 	display: inline-block;
+ 	align-items: center;
+ 	margin-bottom: 5px;
+ 	width: 100%;
+ }
+
+ #fname{
+ 	width: 25%;
+ 	margin-left: 30%;
+ 	margin-right: 10px;
+
+ }
+
+#text-out{
+ 	align-items: center;
+ 	width: 100%;
+ }
+
+ #freeform{
+ 	margin-left: 1.5%;
+ 	margin-right: 1.5%;
+ 	width: 96%;
+ 	height: 96%;
+ }
