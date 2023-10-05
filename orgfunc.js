@@ -21,5 +21,5 @@ function menudiv(eleMent){
 }
 
 function stringQuerie(){
-  console.log('now what');
+  
 }
