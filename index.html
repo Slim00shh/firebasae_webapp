@@ -59,21 +59,49 @@
           <div class="inner" id="node1">
             <p>Estado</p>
             <select class="seleCtor" id="state-Selector" onchange=treeProg(this)>
-                <option onClick=treeProg(this.parentElement) value="tamaulipas">Tamaulipas</option>
-                <option value="Monterrey">Monterrey</option>
-                <option value="Ciudad de Mexico">Ciudad de Mexico</option>s
+              <option onClick=treeProg(this.parentElement) value="">Selecciona Estado</option>
+              <option value="tamaulipas">Tamaulipas</option>
+              <option value="nuevo leon">Nuevo Leon</option>
+              <option value="Ciudad de Mexico">Ciudad de Mexico</option>
             </select>
+
+
+            <script type="text/javascript" > 
+              var tamcount=["Madero", "Tampico", "Altamira", "Reynosa", "Bustamante"];
+              var nLecount=["Abasolo", "Monterrey", "Apodaca", "Cadereyta Jiménez", "Iturbide"];
+              var cdmxcount=["Coyoacán", "Azcapotzalco", "Mipa Alta", "Alvaro Obregon", "Xochimilco"];
+
+              $("#state-Selector").change(function(){
+                  var selectedState = $("#state-Selector").val();
+                  if(selectedState != ""){
+                    $("#county-Selector").find('option').remove();
+                    if(selectedState == "tamaulipas"){
+                      for (var i= 1; i<=tamcount.length; i++){
+                        var tamstate= tamcount[i];
+                        $('#county-Selector').append($("<option></option>").attr("value", tamstate).text(tamstate));
+                      } 
+                    }else if(selectedState == "nuevo leon"){
+                      for (var i= 1; i<=nLecount.length; i++){
+                        var nLestate= nLecount[i];
+                        $('#county-Selector').append($("<option></option>").attr("value", nLestate).text(nLestate));
+                      } 
+                    }else{
+                      for (var i= 1; i<=cdmxcount.length; i++){
+                        var cdmxstate= cdmxcount[i];
+                        $('#county-Selector').append($("<option></option>").attr("value", cdmxstate).text(cdmxstate));
+                      } 
+                    }
+                  }else{
+                    $("#county-Selector").empty();
+                    $("#county-Selector").append($("<option></option>").attr("value", "").text("Selecciona Municipio"));
+                  }
+              });
+            </script>
             <!-- needs a diferent script to deploy options -->
             <!-- how to easy solve it -->
             <p>Municipio</p> 
             <select class="seleCtor" id="county-Selector" onchange=treeProg(this)>
-                <option onClick=treeProg(this.parentElement) value="Opciones">Opciones</option>
-                <option value="Opcion 1">Opcion 1</option>
-                <option value="Opcion 2">Opcion 2</option>
-                <option value="Opcion 3">Opcion 3</option>
-                <option value="Opcion 4">Opcion 4</option>
-                <option value="Opcion 5">Opcion 5</option>
-                <option value="Opcion 6">Opcion 6</option>
+                <option onClick=treeProg(this.parentElement) value="">Selecciona Municipio</option>
             </select>
             
           </div>
@@ -100,30 +128,30 @@
           <div class="inner" id="node3">
             <p>Tipo de ambiente</p>
             <select class="seleCtor" id="ambient-Selector" onchange=treeProg(this)>
-                <option onClick=treeProg(this.parentElement) value="Matutino">Familiar</option>
-                <option value="Vespertino">Nocturno</option>
-                <option value="Vespertino">Infantil</option>
-                <option value="Vespertino">Cualquiera</option>
+                <option onClick=treeProg(this.parentElement) value="Familiar">Familiar</option>
+                <option value="Nocturno">Nocturno</option>
+                <option value="Infantil">Infantil</option>
+                <option value="Cualquiera">Cualquiera</option>
             </select>
             <p>Valoracion del lugar</p>
             <select class="seleCtor" id="value-Selector" onchange=treeProg(this)>
-                <option value="Actual">Excelente</option>
-                <option value="Actual">Buena</option>
-                <option value="Actual">Descente</option>
-                <option value="Actual">Normal</option>
+                <option value="Excelente">Excelente</option>
+                <option value="Buena">Buena</option>
+                <option value="Descente">Descente</option>
+                <option value="Normal">Normal</option>
             </select>
             <p>Nivel de Popularidad</p>
             <select class="seleCtor" id="pop-Selector" onchange=treeProg(this)>
-                <option value="Actual">Alto</option>
-                <option value="Actual">Moderado</option>
-                <option value="Actual">Bajo</option>
+                <option value="Alto">Alto</option>
+                <option value="Moderado">Moderado</option>
+                <option value="Bajo">Bajo</option>
             </select>
           </div>
     </div>
     <!-- This mtf gathers the data and creates the command to pass on to open Ai-->
     <div id="text-cont">
     <input type="text" id="fname" name="fname" readonly>
-     <button id="Qbutton" type="button" onclick=stringQuerie()>Buscar</button> 
+     <button id="Qbutton" type="button" onclick=OpenAifetchApi()>Buscar</button> 
     </div>
     <div id="text-out" > 
       <textarea id="freeform" name="freeform" rows="4" cols="50" readonly>
